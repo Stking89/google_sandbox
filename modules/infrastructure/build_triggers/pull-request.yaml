@@ -1,0 +1,9 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['pull', 'hashicorp/terraform:latest']  
+
+  - name: us-central1-docker.pkg.dev/cr-space-invaders/docker-repo/terraform-cloudbuild-image  
+    entrypoint: /bin/bash
+    args: ['-c', 'terraform init', 'terraform plan']
+
+    
