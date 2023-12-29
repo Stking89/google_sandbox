@@ -5,7 +5,7 @@
 #------------------------------------------------------------------------------------------------------------------------
 
 terraform {
-  required_version = "~> 1.5.4"
+  required_version = "~> 1.6.6"
   backend "gcs" {
     bucket = "gcp-sandbox-tf-state-3812"
     prefix = "terraform/state"
@@ -20,6 +20,8 @@ provider "google" {
 
 module "infrastructure" {
   source = "./modules/infrastructure"
+  
+  project_id = var.project_id
 
 }
 

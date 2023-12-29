@@ -19,6 +19,8 @@ locals {
 locals {
   cloud-build-roles = [
     "roles/cloudbuild.builds.builder",
+    "roles/cloudbuild.builds.approver",
+    "roles/cloudbuild.builds.editor",
     "roles/artifactregistry.admin" 
   ]
   compute-engine-roles = [

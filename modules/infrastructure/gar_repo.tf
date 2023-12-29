@@ -19,7 +19,7 @@ variable "gar_config" {
 #------------------------------------------------------------------------------------------------------------------------
 
 resource "google_artifact_registry_repository" "gar_repo" {
-  for_each      = var.repositories
+  for_each      = var.gar_config
 
   project       = var.project_id
   location      = "us-central1"

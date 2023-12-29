@@ -2,11 +2,8 @@ resource "google_cloudbuild_trigger" "pr_trigger" {
   project  = var.project_id
   name     = "pr-trigger" 
   location = "us-central1"
-  # service_account = "cloud-build-sa@${var.project_id}.iam.gserviceaccount.com"
 
-  description = "Cloud Build trigger that will deploy resources on GCP"
-
-
+  include_build_logs = "INCLUDE_BUILD_LOGS_UNSPECIFIED"
 
   # Define the trigger configuration
   github {
