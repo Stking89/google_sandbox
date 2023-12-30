@@ -2,6 +2,10 @@
 #
 #                                               Project-1-Sandbox
 #                                              (main Configuration)
+#
+# - Terraform Version
+# - Backend Bucket configuration/resource creation
+# - Google Provider Version 
 #------------------------------------------------------------------------------------------------------------------------
 
 terraform {
@@ -44,7 +48,7 @@ resource "google_storage_bucket" "tf-state" {
       enabled     = true 
     }
     uniform_bucket_level_access = true
-    depends_on = [ module.infrastructure.enabled_apis_output ]  #--v
+    depends_on = [ module.infrastructure.enabled_apis_output ]
 }
 # Enabaling APIs is in the infrastructure module, this depends on allows for the proper project APIs to be enabled before deploying resources in this module. 
 

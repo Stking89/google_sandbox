@@ -1,39 +1,32 @@
 steps:
 - id: 'tf init'
-  name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image'
-  entrypoint: 'bin/sh'
+  name: 'hashicorp/terraform:1.0.0'
+  entrypoint: 'sh'
   args: 
   - '-c'
   - | 
-      terraform init
-
-- id: 'tf plan'
-  name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image'
-  entrypoint: 'bin/sh'
-  args: 
-  - '-c'
-  - | 
-      terraform plan
-
+        terraform init
   
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
+- id: 'tf plan'
+  name: 'hashicorp/terraform:1.0.0'
+  entrypoint: 'sh'
+  args: 
+  - '-c'
+  - | 
+        terraform plan
+  
+  
+  
+  
+  
+  
+  
+  
+  
   # - name: gcr.io/cloud-builders/docker
   #   args: ['pull', 'hashicorp/terraform:latest']  
 
   # - name: us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image  
-  #   entrypoint: 'sh'
+  #   entrypoint: '/bin/sh'
   #   args: ['-c', 'terraform init', 'terraform plan']
 
