@@ -13,6 +13,8 @@ gcloud auth configure-docker ${ARTIFACT_REGISTRY}
 # Pull the source image
 docker pull ${SOURCE_IMAGE}
 
+FROM --platform=linux/amd64
+
 # Tag the image for Artifact Registry
 docker tag ${SOURCE_IMAGE} ${ARTIFACT_REGISTRY}/${PROJECT_ID}/${REPOSITORY_NAME}/${IMAGE_NAME}
 
