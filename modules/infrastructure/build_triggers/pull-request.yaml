@@ -5,7 +5,7 @@ steps:
       - set -x && terraform init && terraform validate
     dir: google_sandbox
     id: init-terraform
-    entrypoint: /bin/sh
+    entrypoint: '/bin/sh'
   - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
     args:
       - '-c'
@@ -13,7 +13,7 @@ steps:
         set -x && terraform plan
     dir: google_sandbox
     id: plan-terraform
-    entrypoint: /bin/sh
+    entrypoint: '/bin/sh'
 timeout: 2000s
 logsBucket: 'gs://cloud-build-logs-6870'
 options:
