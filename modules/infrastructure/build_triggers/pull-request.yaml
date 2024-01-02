@@ -1,15 +1,16 @@
 steps:
-- name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image'
-  entrypoint: '/usr/bin/ssh'
+- name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
+  id: pr
+  entrypoint: 'bash'
   args: 
-  - '-C'
+  - '-c'
   - | 
         terraform init
   
-- name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image'
-  entrypoint: '/usr/bin/ssh'
+- name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
+  entrypoint: 'bash'
   args: 
-  - '-C'
+  - '-c'
   - | 
         terraform plan
   
