@@ -19,4 +19,4 @@ logsBucket: 'gs://cloud-build-logs-6870'
 options:
   logging: GCS_ONLY
 tags:
- - pull request
+  - pull-request
