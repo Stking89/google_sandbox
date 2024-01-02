@@ -5,6 +5,7 @@ steps:
   args: 
   - '-c'
   - | 
+    set -e
         terraform init
   
 - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
@@ -12,6 +13,7 @@ steps:
   args: 
   - '-c'
   - | 
+    set -e
         terraform plan
   
   
