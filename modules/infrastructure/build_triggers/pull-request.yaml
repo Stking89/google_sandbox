@@ -1,6 +1,5 @@
 steps:
 - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
-  id: pr
   entrypoint: /bin/bash
   args: 
   - '-c'
