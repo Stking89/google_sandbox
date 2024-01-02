@@ -1,14 +1,12 @@
 steps:
-- id: 'tf init'
-  name: 'hashicorp/terraform:1.6.6'
+- name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image'
   entrypoint: 'bash'
   args: 
   - '-C'
   - | 
         terraform init
   
-- id: 'tf plan'
-  name: 'hashicorp/terraform:1.6.6'
+- name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image'
   entrypoint: 'bash'
   args: 
   - '-C'
