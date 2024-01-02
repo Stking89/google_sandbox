@@ -19,6 +19,4 @@ logsBucket: 'gs://cloud-build-logs-6870'
 options:
   logging: GCS_ONLY
 tags:
-  - core
-  - merge
-  - push
+ - pull request
