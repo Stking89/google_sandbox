@@ -1,32 +1,24 @@
 steps:
-- name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
-  entrypoint: /bin/bash
-  args: 
-  - '-c'
-  - | 
-    set -e
-        terraform init
-  
-# - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
-#   entrypoint: '/bin/bash/'
-#   args: 
-#   - '-c'
-#   - | 
-#     set -e
-#         terraform plan
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  # - name: gcr.io/cloud-builders/docker
-  #   args: ['pull', 'hashicorp/terraform:latest']  
-
-  # - name: us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image  
-  #   entrypoint: '/bin/sh'
-  #   args: ['-c', 'terraform init', 'terraform plan']
-
+  - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
+    args:
+      - '-c'
+      - set -x && terraform init && terraform validate
+    dir: google_sandbox
+    id: init-terraform
+    entrypoint: /bin/sh
+  - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
+    args:
+      - '-c'
+      - >-
+        set -x && terraform plan
+    dir: google_sandbox
+    id: plan-terraform
+    entrypoint: /bin/sh
+timeout: 2000s
+logsBucket: 'gs://cloud-build-logs-6870'
+options:
+  logging: GCS_ONLY
+tags:
+  - core
+  - merge
+  - push
