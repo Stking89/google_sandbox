@@ -1,12 +1,12 @@
 steps:
-  - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
+  - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:sha256:614102f833748a9cf991765add37d50e1a164ca5260e45fbbcdd71e7c83cefcf'
     args:
       - '-c'
       - set -x && terraform init && terraform validate
     dir: google_sandbox
     id: init-terraform
     entrypoint: /bin/sh
-  - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
+  - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:sha256:614102f833748a9cf991765add37d50e1a164ca5260e45fbbcdd71e7c83cefcf'
     args:
       - '-c'
       - >-
