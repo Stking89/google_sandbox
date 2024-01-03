@@ -1,22 +1,22 @@
-steps:
+steps: 
   - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
-    args:
+    id: init-terraform 
+    entrypoint: /bin/bash
+    dir: google_sandbox
+    args: 
       - '-c'
       - set -x && terraform init && terraform validate
-    dir: google_sandbox
-    id: init-terraform
-    entrypoint: '/bin/terraform'
   - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
-    args:
-      - '-c'
-      - >-
-        set -x && terraform plan
-    dir: google_sandbox
-    id: plan-terraform
-    entrypoint: '/bin/terraform'
-timeout: 2000s
-logsBucket: 'gs://cloud-build-logs-6870'
-options:
-  logging: GCS_ONLY
-tags:
-  - pull-request
+     id: plan-terraform
+     entrypoint: /bin/bash
+     dir: google_sandbox
+     args: 
+       - '-c'
+       - >-
+         set -x && terraform plan
+  timeout: 2000s
+  logsBucket: 'gs://cloud-build-logs-6870'
+  options:
+    logging: GCS_ONLY
+  tags:
+    - pull-request
