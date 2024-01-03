@@ -14,12 +14,12 @@ steps:
       - '-c'
       - >-
       set -x && terraform plan
-  timeout: 2000s
-  logsBucket: 'gs://cloud-build-logs-6870'
-  options:
-   logging: GCS_ONLY
-  tags:
-    - pull-request
+timeout: 2000s
+logsBucket: 'gs://cloud-build-logs-6870'
+options:
+ logging: GCS_ONLY
+tags:
+ - pull-request
 
 
       
