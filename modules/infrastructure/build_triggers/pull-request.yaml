@@ -1,12 +1,12 @@
 steps:
-  - name: 'hashicorp/terraform:latest'
+  - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
     args:
       - '-c'
       - set -x && terraform init && terraform validate
     dir: google_sandbox
     id: init-terraform
     entrypoint: /bin/sh
-  - name: 'hashicorp/terraform:latest'
+  - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
     args:
       - '-c'
       - >-
