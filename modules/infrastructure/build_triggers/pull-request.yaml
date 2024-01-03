@@ -13,7 +13,7 @@ steps:
     args: 
       - '-c'
       - >-
-        set -x && terraform plan
+       set -x && terraform plan
   timeout: 2000s
   logsBucket: 'gs://cloud-build-logs-6870'
   options:
