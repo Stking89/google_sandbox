@@ -13,12 +13,12 @@ gcloud auth configure-docker ${ARTIFACT_REGISTRY}
 # Pull the source image
 docker pull ${SOURCE_IMAGE}
 
-docker buildx build --platform linux/amd64
+# Use builder instance
+docker buildx use dockerbuilder
 
-# Tag the image for Artifact Registry
-docker tag ${SOURCE_IMAGE} ${ARTIFACT_REGISTRY}/${PROJECT_ID}/${REPOSITORY_NAME}/${IMAGE_NAME}
+# Adjust architecture to desired platform 
+docker buildx build --platform linux/amd64 \
+--push ${ARTIFACT_REGISTRY}/${PROJECT_ID}/${REPOSITORY_NAME}/${IMAGE_NAME}
+--tag  ${ARTIFACT_REGISTRY}/${REPOSITORY_NAME}/${IMAGE_NAME}:${SOURCE_IMAGE} . &&
 
-# Push the image to Artifact Registry
-docker push ${ARTIFACT_REGISTRY}/${PROJECT_ID}/${REPOSITORY_NAME}/${IMAGE_NAME}
-
-echo "Image pushed to Artifact Registry!"
+echo "Image pushed to Artifact Registry!" || echo "Image build or push failed."
