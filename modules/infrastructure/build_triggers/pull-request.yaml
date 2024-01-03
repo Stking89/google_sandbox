@@ -6,6 +6,7 @@ steps:
     args: 
       - '-c'
       - set -x && terraform init && terraform validate
+      
   - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
      id: plan-terraform
      entrypoint: /bin/bash
