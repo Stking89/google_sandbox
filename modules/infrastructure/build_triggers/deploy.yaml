@@ -1,0 +1,21 @@
+steps:
+  - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
+    args:
+      - '-c'
+      - set -x && terraform init && terraform validate
+    id: init-terraform
+    entrypoint: /bin/sh
+  - name: 'us-central1-docker.pkg.dev/project-1-sandbox-1223/docker-repo/terraform-cloudbuild-image:latest'
+    args:
+      - '-c'
+      - >-
+        set -x && terraform apply --auto-approve
+    id: execute-terraform
+    entrypoint: /bin/sh
+timeout: 2000s
+logsBucket: 'gcloud-build-logs-6870'
+options:
+  logging: GCS_ONLY
+tags:
+  - merge
+  - push
