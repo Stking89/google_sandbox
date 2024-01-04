@@ -10,15 +10,11 @@ IMAGE_NAME="terraform-cloudbuild-image"
 # Authenticate for Artifact Registry
 gcloud auth configure-docker ${ARTIFACT_REGISTRY}
 
-# Use builder instance
-docker buildx use dockerbuilder 
-
 # Pull the source image
-docker pull ${SOURCE_IMAGE}
+docker pull ${SOURCE_IMAGE} --platform linux/amd64
 
-# Adjust architecture to desired platform 
-docker buildx platform linux/amd64 .
 docker tag  ${SOURCE_IMAGE} ${ARTIFACT_REGISTRY}/${PROJECT_ID}/${REPOSITORY_NAME}/${IMAGE_NAME}
+
 docker push ${ARTIFACT_REGISTRY}/${PROJECT_ID}/${REPOSITORY_NAME}/${IMAGE_NAME}  &&
 
 echo "Image pushed to Artifact Registry!" || echo "Image build or push failed."
