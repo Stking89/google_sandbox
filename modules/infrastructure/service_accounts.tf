@@ -56,13 +56,13 @@ output "service_account_email" {
 #------------------------------------------------------------------------------------------------------------------------
 #                                                Cloud Build
 #------------------------------------------------------------------------------------------------------------------------
-# resource "google_project_iam_member" "cloud_build_roles" {
-#   project  = var.project_id
-#   member   = "serviceAccount:cloud-build-sa@${var.project_id}.iam.gserviceaccount.com"
-#   for_each = toset(local.cloud-build-roles)
-#   role     = each.value
+resource "google_project_iam_member" "cloud_build_roles" {
+  project  = var.project_id
+  member   = "serviceAccount:cloud-build-sa@${var.project_id}.iam.gserviceaccount.com"
+  for_each = toset(local.cloud-build-roles)
+  role     = each.value
 
   
-# }
+}
 #------------------------------------------------------------------------------------------------------------------------
 

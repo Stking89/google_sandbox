@@ -2,6 +2,7 @@
 #                                                (Google Artifact Repo)                               
 #------------------------------------------------------------------------------------------------------------------------
 
+# Add repository name below to the appropriate repository format type
 variable "gar_config" {
   type = map(list(string))
   default = {
