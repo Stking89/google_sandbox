@@ -25,12 +25,7 @@ This repository is currently undergoing significant structural changes. The exis
 
 Due to the ongoing reconstruction, exercise caution when using or modifying the code in this repository. Significant changes are anticipated in the near future.
 
-**Stay Updated:**
-
-- Watch this repository for updates on progress and changes.
-- Feel free to contribute or provide feedback on the architectural direction.
-
-**Updates**
+**Updates:**
 
 - 1/5/24
     - Repository will be moved into personal GitHub orginization starting 1/9/24
