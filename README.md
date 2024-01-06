@@ -1,6 +1,6 @@
 # Google_sandbox
 
-**Under Active Reconstruction:**
+**Under Active Construction:**
 
 This repository is currently undergoing significant structural changes. The existing code represents a quick deployment and is not yet reflective of the intended long-term architecture.
 
@@ -29,3 +29,8 @@ Due to the ongoing reconstruction, exercise caution when using or modifying the 
 
 - Watch this repository for updates on progress and changes.
 - Feel free to contribute or provide feedback on the architectural direction.
+
+**Updates**
+
+- 1/5/24
+    - Repository will be moved into personal GitHub orginization starting 1/9/24
