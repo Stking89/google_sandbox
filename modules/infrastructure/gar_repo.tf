@@ -6,7 +6,7 @@
 variable "gar_config" {
   type = map(list(string))
   default = {
-    "DOCKER"       = ["docker-repo", "terraform-repo"]
+    "DOCKER"       = ["docker-repo", "terraform-repo", "mine-craft"]
     "MAVEN"        = ["maven-repo"]
     "APT"          = ["apt-repo"]
     "YUM"          = ["yum-repo"]
