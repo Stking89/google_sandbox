@@ -10,6 +10,7 @@ resource "random_integer" "random_number" {
 
 resource "google_storage_bucket" "build_logs" {
   name          = "cloud-build-logs-${random_integer.random_number.result}"
+  project       = var.project_id
   location      = "us-central1"
   storage_class = "STANDARD"
 
